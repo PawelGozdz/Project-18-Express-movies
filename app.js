@@ -25,37 +25,8 @@ Comment.belongsTo(Movie, { constraints: true, onDelete: 'CASCADE' });
 Movie.hasMany(Comment);
 
 sequelize
-  // .sync({ force: true })
-  .sync()
-  // .then(aa => {
-  //   return Movie.create({
-  //     title: 'req.Title',
-  //       year: 'req.Year',
-  //       rated: 'req.Rated',
-  //       released: 'req.Released',
-  //       runtime: 'req.Runtime',
-  //       genre: 'req.Genre',
-  //       director: 'req.Director',
-  //       writer: 'req.Writer',
-  //       actors: 'req.Actors',
-  //       plot: 'req.Plot',
-  //       language: 'req.Language',
-  //       country: 'req.Country',
-  //       awards: 'req.Awards',
-  //       poster: 'req.Poster',
-  //       ratings: 'JSON.stringify(req.Ratings)',
-  //       metascore: 'req.Metascore',
-  //       imdbRating: 'req.imdbRating',
-  //       imdbVotes: 'req.imdbVotes',
-  //       imdbID: 'req.imdbID',
-  //       type: 'req.Type',
-  //       dvd: 'req.DVD',
-  //       boxOffice: 'req.BoxOffice',
-  //       production: 'req.Production',
-  //       website: 'req.Website',
-  //       response: 'req.Response'
-  //   });
-  // })
+  .sync({ force: true })
+  // .sync()
   .then(() => {
     app.listen(3000);
   })
