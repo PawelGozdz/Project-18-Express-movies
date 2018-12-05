@@ -1,1 +1,1 @@
-web: node app.js 22222
+web: node app.js
