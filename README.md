@@ -1,14 +1,14 @@
 # Express.js Movie App
 
-This app fetches some movie information (year, actors, awards etc) based on user input and save all the information in the DB.
-Additionaly, using the 'option' dropdown, the user can check the details, add a comment and view other users comments.
-'Comments' in the navbar, display all the comments from the DB regardless of the movie title.
+This app fetches some movie information (year, actors, awards etc) based on user input and save all the information in the DB.\
+Additionaly, using the 'option' dropdown, the user can check the details, add a comment and view other users comments.\
+'Comments' in the navbar, display all the comments from the DB regardless of the movie title.\
 Specific movie comments, are accessable from the movie dropdown.
 
 ## Basic Information
 This my 2nd Express app that I have ever built. Can be done better.
 
-What I wanted to achieve here, is to use Node/Express for the whole app, without Front End JS.
+What I wanted to achieve here, is to use Node/Express for the whole app, without Front End JS.\
 There are places, where I did not know how to properly handle several things (mainly with Sequelize) as I've just started learning it.
 
 For example, in '/comments' route, where all the comments are displayed, I didn't include the movie title for specific comment, because I didn't know how to query the 'movies' table from the 'comments' table. In sql it would like this:
@@ -24,7 +24,7 @@ I did my best to aviod heavy JS usage in the pug files.
 To run it locally, clone the repo and run:\
 npm install
 
-You can use my token.\
+You can use my token.
 
 ### Installing Postgresql
 
@@ -91,8 +91,8 @@ https://movies-fetch.herokuapp.com/movies
 
 ## Built With
 
-* Express.js - app handling\
-* Pug - template handling\
+* Express.js - app handling
+* Pug - template handling
 * Sequelize - CRUD & DB connection handling
 
 ## Authors
