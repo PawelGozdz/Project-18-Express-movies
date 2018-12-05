@@ -1,4 +1,2 @@
-/node_modules
-/notatki.txt
-/secret/database.js
-/secret/token.js
+node_modules
+notatki.txt
