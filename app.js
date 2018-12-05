@@ -1,5 +1,7 @@
 const path = require('path');
 
+const port = procecs.env.PORT || 3000;
+
 const express = require('express');
 const bodyParser = require('body-parser');
 
@@ -28,6 +30,6 @@ sequelize
   .sync({ force: true })
   // .sync()
   .then(() => {
-    app.listen(3000);
+    app.listen(port);
   })
   .catch(err => console.log(err));
