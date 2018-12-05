@@ -3,14 +3,12 @@ const Movie = require('../models/movie');
 const { token } = require('../secret/token');
 
 exports.getIndex = (req, res, next) => {
-  // console.log('GoT IT!!');
   res.redirect('/movies');
 };
 
 exports.getMovies = (req, res, next) => {
   Movie.findAll()
     .then((movies) => {
-      // console.log(movies);
       res.render('movies', {
         path: '/movies',
         pageTitle: 'Your Movies',
@@ -61,18 +59,4 @@ exports.postMovie = (req, res, next) => {
       console.log(err);
       res.redirect('/movies');
     });
-  // fetchMovieDetails
-  //   .then(results => {
-  //     console.log(results);
-  //   });
-  // const { movieId } = req.body;
-  // if (movieTitle !== '') {
-  //   res.render('movies', {
-  //     path: '/movies',
-  //     pageTitle: 'Your Movies',
-  //     success: 'Movie not found. Please check its title!'
-  //   });
-  // }
-  
-  // next();
 };
