@@ -23,7 +23,6 @@ app.use(commentRoutes);
 
 Comment.belongsTo(Movie, { constraints: true, onDelete: 'CASCADE' });
 Movie.hasMany(Comment);
-Movie.hasMany(Comment);
 
 sequelize
   .sync({ force: true })
