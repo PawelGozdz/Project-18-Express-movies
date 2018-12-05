@@ -1,0 +1,22 @@
+extends ./layouts/main-layout.pug
+
+block content
+  main
+    section
+      .container
+        h1.text-center.my-4 #{pageTitle}
+        .d-flex.align-items-center
+          strong.mb-0= movieTitle
+          span.badge.badge-primary.badge-pill.ml-2= comments.length
+          span.ml-2 comment(s)
+        if (comments.length > 0)
+          ul.list-group.mt-4
+          each comment in comments
+            li.list-group-item
+              - const date= comment.createdAt;
+                p
+                  span.lead Posted:
+                  strong  #{ date.getDate() + '-' + (date.getMonth() + 1) + '-' + date.getFullYear() }
+                p= comment.comment
+        else
+          p.mt-4 This movie hasn't got any comments yet

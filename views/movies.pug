@@ -1,0 +1,126 @@
+extends ./layouts/main-layout.pug
+
+block content
+  main
+    section
+      .container
+        h1.text-center.my-4 #{pageTitle}
+        .row
+          .col-md-6
+            form(action="/movies" method="POST")
+              .form-group
+                input(type="search" name="movieTitle" placeholder="Find a movie...").form-control#title
+                small.form-text.text-muted Type your favourite movie title and hit 'Search'
+              button(type="submit").btn.btn-outline-info#findTitle Search
+
+          .col-md-6
+            section.form-group
+              h3 Movies saved in DB
+              ul.list-group.list-group-flush
+                if (movies.length > 0)
+                  each movie, index in movies
+                    li.list-group-item
+                      .col-12.d-flex.justify-content-between
+                        p= movie.title
+                        .dropdown
+                          a(href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false").btn.btn-secondary.dropdown-toggle.ml-3 Options
+                          div(aria-labelledby="dropdownMenuLink").dropdown-menu#myGroup
+                            a(href=`#details-${index}` data-toggle="collapse" data-parent="#myGroup" role="button" aria-expanded="false" aria-controls=`details-${index}`).dropdown-item Details
+                            a(href=`#add-comment-${index}` data-toggle="collapse" data-parent="#myGroup" role="button" aria-expanded="false" aria-controls=`#add-comment-${index}`).dropdown-item Add Comment
+                            a(href=`#comments-${index}` data-toggle="collapse" data-parent="#myGroup" role="button" aria-expanded="false" aria-controls=`#comments-${index}`).dropdown-item Comments
+                      div
+                        .col
+                          div(id=`details-${index}`).collapse.multi-collapse
+                            p
+                              strong Year 
+                              span.small.ml-3= movie.year 
+                            p
+                              strong  Rated
+                              span.small.ml-3= movie.rated 
+                            p
+                              strong  Released
+                              span.small.ml-3= movie.released 
+                            p
+                              strong  Runtime
+                              span.small.ml-3= movie.runtime 
+                            p
+                              strong  Genre
+                              span.small.ml-3= movie.genre 
+                            p
+                              strong  Director
+                              span.small.ml-3= movie.director 
+                            p
+                              strong  Plot
+                              span.small.ml-3= movie.plot 
+                            p
+                              strong  Language
+                              span.small.ml-3= movie.language 
+                            p
+                              strong  Country
+                              span.small.ml-3= movie.country 
+                            p
+                              strong  Awards
+                              span.small.ml-3= movie.awards 
+                            p
+                              strong  Poster
+                              if (movie.poster !== 'N/A')
+                                a(href=movie.poster target="_blank").small.ml-3= movie.poster 
+                              else
+                                span.small.ml-3= movie.poster
+                            p
+                              strong  Ratings
+                              - let ratingsParsed = JSON.parse(movie.ratings)
+                              if (ratingsParsed.length > 0)
+                                each rating in ratingsParsed
+                                  p.lead.ml-3= rating.Source
+                                    span.small.ml-3= rating.Value
+                              else
+                                span.small.ml-3= 'N/A'
+                            p
+                              strong  Metascore
+                              span.small.ml-3= movie.metascore 
+                            p
+                              strong  ImdbRating
+                              span.small.ml-3= movie.imdbRating 
+                            p
+                              strong  ImdbVotes
+                              span.small.ml-3= movie.imdbVotes 
+                            p
+                              strong  ImdbID
+                              span.small.ml-3= movie.imdbID 
+                            p
+                              strong  Type
+                              span.small.ml-3= movie.type 
+                            p
+                              strong  DVD
+                              span.small.ml-3= movie.dvd 
+                            p
+                              strong  BoxOffice
+                              span.small.ml-3= movie.boxOffice 
+                            p
+                              strong  Production
+                              span.small.ml-3= movie.production 
+                            p
+                              strong  Website
+                              if (movie.website !== 'N/A')
+                                a(href=movie.website target="_blank").small.ml-3= movie.website 
+                              else
+                                span.small.ml-3= movie.website 
+                            p
+                              strong  Responsive
+                              span.small.ml-3= movie.response 
+                        .col
+                          div(id=`add-comment-${index}`).collapse.multi-collapse
+                            form(action="/comments", method="POST")
+                              .form-group
+                                textarea(name="comment" rows="3").form-control.mb-1
+                                button(type="submit").btn.btn-info Post comment
+                                input(type="hidden" value=movie.id name="movieId")
+                        .col
+                          div(id=`comments-${index}`).collapse.multi-collapse
+                            p Check what ofher people thing about 
+                              strong "#{movie.title}"
+                            a(href=`/comments/${movie.id}`).btn.btn-info Comments
+                else
+                  p No movies in your DB
+          
