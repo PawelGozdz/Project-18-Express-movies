@@ -24,6 +24,8 @@ I did my best to aviod heavy JS usage in the pug files.
 To run it locally, clone the repo and run:
 npm install
 
+You can use my token.
+
 ### Installing Postgresql
 
 If you have Postgres already installed, skip this section. Otherwise:

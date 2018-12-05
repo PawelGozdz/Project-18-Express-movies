@@ -1,6 +1,6 @@
 const Sequelize = require('sequelize');
 
-const sequelize = new Sequelize('moviedb', 'new_user', 'password1', {
+const sequelize = new Sequelize('database', 'user', 'password', {
   dialect: 'postgres', host: 'localhost'
 });
 
