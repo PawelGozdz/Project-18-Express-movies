@@ -6,25 +6,25 @@ Additionaly, using the 'option' dropdown, the user can check the details, add a 
 Specific movie comments, are accessable from the movie dropdown.
 
 ## Basic Information
-I'm not an experienced developer. This app, is my 2nd Express app that I have ever built. It's not perfect, I know it. Can be done better.
+This my 2nd Express app that I have ever built. Can be done better.
 
 What I wanted to achieve here, is to use Node/Express for the whole app, without Front End JS.
 There are places, where I did not know how to properly handle several things (mainly with Sequelize) as I've just started learning it.
 
 For example, in '/comments' route, where all the comments are displayed, I didn't include the movie title for specific comment, because I didn't know how to query the 'movies' table from the 'comments' table. In sql it would like this:
 
-SELECT movies.movies.title FROM movies.movies
-	INNER JOIN movies.comments ON movies.movies.id = movies.comments.movieId
+SELECT movies.movies.title FROM movies.movies\
+	INNER JOIN movies.comments ON movies.movies.id = movies.comments.movieId\
 WHERE movies.comments.movieId = 3;
 
 I did my best to aviod heavy JS usage in the pug files. 
 
 ## Getting Started
 
-To run it locally, clone the repo and run:
+To run it locally, clone the repo and run:\
 npm install
 
-You can use my token.
+You can use my token.\
 
 ### Installing Postgresql
 
@@ -40,35 +40,35 @@ postgres=#
 
 ... it means that everything is ok. Otherwise visit this website:
 
-https://gist.github.com/15Dkatz/321e83c4bdd7b78c36884ce92db26d38
+https://gist.github.com/15Dkatz/321e83c4bdd7b78c36884ce92db26d38\
 ... and follow a step by step tutorial how to install on Mac & Windows
 
 Next step is to install Postgres.app. Go to:
 
 https://postgresapp.com/
 
-Once installation is complete, click blue button 'initialize' in the upper right corner of the screen.
+Once installation is complete, click blue button 'initialize' in the upper right corner of the screen.\
 When is done, go to you terminal and type:
 
 psql -U postgres
 
-This allowes you to log in to the psql interactive shell as the user named 'postgres'. This is a default user.
+This allowes you to log in to the psql interactive shell as the user named 'postgres'. This is a default user.\
 Different user can have different access to different databases or different level of authorithy.
 
 ### Creating new postgres database and user
 
-The line below creates database (somedb) for a user named (postgres)
+The line below creates database (somedb) for a user named (postgres)\
 createdb -U postgres somedb
 
-To link the user (user named postgres) with the db type:
+To link the user (user named postgres) with the db type:\
 psql -U postgres somedb
 
 Now you should be in psql interactive shell
 
-To create new user (still in psql shell) with full access type:
+To create new user (still in psql shell) with full access type:\
 CREATE USER new_user WITH SUPERUSER PASSWORD 'password1';
 
-This message should appear:
+This message should appear:\
 CREATE ROLE
 
 If not, repeat the above.
@@ -86,13 +86,13 @@ Unfortunetly I have never written any test, therefore I skipped them.
 
 ## Deployment
 
-The app is up and running. Can be viewed here:
+The app is up and running. Can be viewed here:\
 https://movies-fetch.herokuapp.com/movies
 
 ## Built With
 
-* Express.js - app handling
-* Pug - template handling
+* Express.js - app handling\
+* Pug - template handling\
 * Sequelize - CRUD & DB connection handling
 
 ## Authors
