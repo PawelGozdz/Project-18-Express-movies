@@ -11,7 +11,7 @@ This my 2nd Express app.
 What I wanted to achieve here, is to use Node/Express for the whole app, without Front End JS.\
 There are places, where I didn't know how to properly handle several things (mainly with Sequelize) as I've just started learning it.
 
-For example, in '/comments' route, where all the comments are displayed, I didn't include the movie title for specific comment, because I didn't know how to query the 'movies' table from the 'comments' table. In sql it would like this:
+For example, in '/comments' route, where all the comments are displayed, I didn't include the movie title for specific comment, because I didn't know how to query the 'movies' table from the 'comments' table using sequelize. In sql it would like this:
 
 SELECT movies.movies.title FROM movies.movies\
 	INNER JOIN movies.comments ON movies.movies.id = movies.comments.movieId\
