@@ -22,10 +22,10 @@ WHERE movies.comments.movieId = 3;
 To run it locally, download the repo and run:\
 npm install
 
-If you have Postgres already installed, change your database, user & password in secret/database.js file./
+If you have Postgres already installed, change your database, user & password in secret/database.js file.\
 Sequelize will create all the tables and relations for you.
 
-Now, if you run:/
+Now, if you run:\
 npm start
 
 the application should start.
