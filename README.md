@@ -6,10 +6,10 @@ Additionaly, using the 'option' dropdown, the user can check the details, add a 
 Specific movie comments, are accessable from the movie dropdown.
 
 ## Basic Information
-This my 2nd Express app that I have ever built. Can be done better.
+This my 2nd Express app.
 
 What I wanted to achieve here, is to use Node/Express for the whole app, without Front End JS.\
-There are places, where I did not know how to properly handle several things (mainly with Sequelize) as I've just started learning it.
+There are places, where I didn't know how to properly handle several things (mainly with Sequelize) as I've just started learning it.
 
 For example, in '/comments' route, where all the comments are displayed, I didn't include the movie title for specific comment, because I didn't know how to query the 'movies' table from the 'comments' table. In sql it would like this:
 
@@ -17,20 +17,25 @@ SELECT movies.movies.title FROM movies.movies\
 	INNER JOIN movies.comments ON movies.movies.id = movies.comments.movieId\
 WHERE movies.comments.movieId = 3;
 
-I did my best to aviod heavy JS usage in the pug files. 
-
 ## Getting Started
 
-To run it locally, clone the repo and run:\
+To run it locally, download the repo and run:\
 npm install
 
-You can use my token.
+If you have Postgres already installed, change your database, user & password in secret/database.js file./
+Sequelize will create all the tables and relations for you.
+
+Now, if you run:/
+npm start
+
+the application should start.
+
+## Token
+You can use mine.
 
 ### Installing Postgresql
 
-If you have Postgres already installed, skip this section. Otherwise:
-
-Type:
+If you don't have Postgres installed, follow the below:
 
 psql -U postgres
 
